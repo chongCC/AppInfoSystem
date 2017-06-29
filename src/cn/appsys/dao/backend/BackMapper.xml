@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="cn.appsys.dao.backend.BackMapper">
+	<select id="getBackLogin" resultType="BackendUser">
+		select * from backend_user b
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="userCode != null">
+				and b.userCode=#{userCode}
+			</if>
+		</trim>
+	</select>
+	
+</mapper>
